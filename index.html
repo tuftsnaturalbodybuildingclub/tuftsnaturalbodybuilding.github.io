@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Tufts Natural Bodybuilding Club — home page
+  ============================================================
+  This file MUST be named exactly "index.html" — it's the front
+  door GitHub Pages looks for.
+
+  The site is split into three files so each job stays separate:
+    index.html  -> the content & structure (this file)
+    style.css   -> all the colors, fonts, and layout
+    script.js   -> the interactive bits (the menu button, etc.)
+
+  To change wording: edit the text between the tags below.
+  To change how it looks: open style.css.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Makes the site scale correctly on phones. Keep this line. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tufts Natural Bodybuilding Club</title>
+  <meta name="description" content="A drug-free strength training and bodybuilding club for Tufts students. All experience levels welcome." />
+
+  <!-- Display font (Oswald) from Google Fonts. To use a different font,
+       change the family here and the --font-display line in style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="top">
+
+  <!-- ================= HEADER / NAV ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">Tufts Natural Bodybuilding</a>
+
+      <!-- Shows only on small screens. script.js makes it open/close the menu. -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav">
+        <a href="#about">About</a>
+        <a href="#what-we-do">What we do</a>
+        <a href="#meetings">Meetings</a>
+        <a href="#join" class="nav-cta">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Tufts University &middot; Student Club</p>
+        <h1 class="hero-title">No shortcuts.<br />Just reps.</h1>
+        <p class="hero-lede">
+          A drug-free community for students who want to get stronger, build their
+          physique, and learn to train the right way — whatever your starting point.
+        </p>
+        <div class="actions">
+          <a href="#meetings" class="btn btn-primary">Come to a meeting</a>
+          <a href="#about" class="btn btn-ghost">Learn more</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section">
+      <div class="container narrow">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">Strength, earned honestly.</h2>
+        <p>
+          We're a student-run club at Tufts for anyone interested in natural — meaning
+          drug-free — strength training and bodybuilding. Natural gains are slow and
+          earned, and that's the whole point: we're here for the long game.
+        </p>
+        <p>
+          All experience levels are welcome. Never touched a barbell? Great. Been
+          lifting for years? Also great. We train together, share what works, and keep
+          each other accountable. Compete on stage one day if you want to — or just get
+          stronger with good people.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= WHAT WE DO (cards) ================= -->
+    <section id="what-we-do" class="section section-alt">
+      <div class="container">
+        <p class="section-eyebrow">What we do</p>
+        <h2 class="section-title">A few ways to get involved</h2>
+
+        <!-- This grid reflows to one column on phones automatically. -->
+        <div class="card-grid">
+          <article class="card">
+            <h3>Group lifts</h3>
+            <p>Weekly sessions with spotters, structure, and good company. Show up, lift, repeat.</p>
+          </article>
+
+          <article class="card">
+            <h3>Form &amp; technique</h3>
+            <p>Learn the big lifts safely — squat, bench, deadlift, and more — from members who've put in the reps.</p>
+          </article>
+
+          <article class="card">
+            <h3>Posing &amp; stage prep</h3>
+            <p>Chasing a natural show? We run posing practice and prep guidance to get you stage-ready.</p>
+          </article>
+
+          <article class="card">
+            <h3>Nutrition &amp; recovery</h3>
+            <p>Workshops on eating for your goals, sleep, and training smart so progress actually sticks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MEETINGS ================= -->
+    <section id="meetings" class="section">
+      <div class="container narrow">
+        <p class="section-eyebrow">Meetings</p>
+        <h2 class="section-title">When &amp; where</h2>
+        <!-- EDIT the day, time, and location to match your real schedule. -->
+        <p class="meeting-line"><strong>Tuesdays at 7:00 PM</strong></p>
+        <p class="meeting-line">Tisch Sports &amp; Fitness Center &middot; room TBD</p>
+        <p>New faces are always welcome — no sign-up needed for your first one. Just show up.</p>
+      </div>
+    </section>
+
+    <!-- ================= JOIN / CONTACT ================= -->
+    <section id="join" class="section section-dark">
+      <div class="container narrow">
+        <p class="section-eyebrow">Get involved</p>
+        <h2 class="section-title">Come train with us</h2>
+        <p>
+          The easiest way in is to show up to a meeting. Want updates first, or have a
+          question? Reach out.
+        </p>
+        <div class="actions">
+          <!-- EDIT these links: your real club email and Instagram handle. -->
+          <a href="mailto:naturalbodybuilding@tufts.edu" class="btn btn-primary">Email the club</a>
+          <a href="https://instagram.com/" class="btn btn-ghost">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Tufts Natural Bodybuilding Club</p>
+      <p class="footer-meta">
+        Tufts University &middot; Made by students, for students &middot;
+        <!-- script.js fills in the current year automatically. -->
+        &copy; <span id="year"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Your JavaScript. "defer" loads the page first, then runs the script. -->
+  <script src="script.js" defer></script>
+</body>
+</html>
