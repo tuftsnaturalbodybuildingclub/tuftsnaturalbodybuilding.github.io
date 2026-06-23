@@ -2,10 +2,11 @@
    Tufts Natural Bodybuilding Club — script.js
    ============================================================
    This file adds the interactive behavior. Right now it does
-   three small things:
+   these small things:
      1. Opens/closes the mobile menu when you tap the hamburger
      2. Closes that menu after you tap a link
      3. Fills in the current year in the footer
+     4. Counts the "pounds lifted" number up when it scrolls in
 
    It's a good place to start learning JavaScript: read the
    comments, change something, and reload your page to see it.
@@ -46,6 +47,70 @@ document.addEventListener("DOMContentLoaded", function () {
   const yearSpan = document.querySelector("#year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
+  }
+
+  /* ---------- 4. COUNT-UP "POUNDS LIFTED" ---------- */
+
+  // The .stat-number element holds the target in its data-target attribute.
+  // We animate from 0 up to that number the first time it scrolls into view.
+  const statEl = document.querySelector(".stat-number");
+  if (statEl) {
+    const target = Number(statEl.dataset.target) || 0;
+
+    // Add the thousands separators (e.g. 3300000 -> "3,300,000").
+    function formatNumber(n) {
+      return Math.round(n).toLocaleString("en-US");
+    }
+
+    // Some people ask their device to reduce motion — show the final
+    // number right away rather than animating it.
+    const reduceMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) {
+      statEl.textContent = formatNumber(target);
+    } else {
+      let started = false;
+
+      function runCount() {
+        const duration = 2000; // total time in milliseconds (2 seconds)
+        const startTime = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          // ease-out: fast at first, gently slowing as it nears the total
+          const eased = 1 - Math.pow(1 - progress, 3);
+          statEl.textContent = formatNumber(target * eased);
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            statEl.textContent = formatNumber(target); // land exactly on the total
+          }
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // Only start once the band is actually on screen.
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !started) {
+                started = true;
+                runCount();
+                observer.disconnect(); // run it once, then stop watching
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        observer.observe(statEl);
+      } else {
+        // Very old browsers: just run it.
+        runCount();
+      }
+    }
   }
 
 });

@@ -105,6 +105,11 @@ img {
   max-width: 680px;
 }
 
+/* Center a block of text (used by the Federations heading). */
+.centered {
+  text-align: center;
+}
+
 .section {
   padding: 5rem 0;
 }
@@ -220,11 +225,31 @@ img {
 
 /* Hero */
 .hero {
+  position: relative;      /* lets the logo sit behind the words */
+  overflow: hidden;        /* trims any logo overflow at the edges */
   background: var(--ink);
   color: #f4f5f7;
   padding: 6rem 0;
 }
+/* The big club logo behind the hero text.
+   WANT IT BOLDER / NEXT TO THE TITLE INSTEAD OF A FAINT BACKDROP?
+   Raise the opacity (try 0.6–1), and nudge "right" toward 4%. */
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  transform: translateY(-50%);
+  height: 118%;
+  width: auto;
+  max-width: 55%;
+  object-fit: contain;
+  opacity: 0.16;           /* subtle watermark */
+  pointer-events: none;    /* never blocks clicks on the buttons */
+  z-index: 0;
+}
 .hero-inner {
+  position: relative;      /* keeps the text above the logo */
+  z-index: 1;
   max-width: 760px;
 }
 .eyebrow {
@@ -293,6 +318,38 @@ img {
   background: rgba(0, 0, 0, 0.05);
 }
 
+/* Total-lifted stat band */
+.stat-band {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 0;
+}
+.stat-eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin: 0 0 0.5rem;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 12vw, 7rem);
+  line-height: 1;
+  margin: 0;
+  font-variant-numeric: tabular-nums; /* digits keep an even width while counting */
+}
+.stat-label {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
+  margin: 0.75rem 0 0;
+  opacity: 0.9;
+}
+
 /* Card grid (What we do) */
 .card-grid {
   display: grid;
@@ -318,6 +375,38 @@ img {
 .card p {
   color: var(--muted);
   margin: 0;
+}
+
+/* Federations — the revolving logo strip */
+.logo-marquee {
+  margin-top: 3rem;
+  overflow: hidden;               /* hide the part of the track off-screen */
+  /* Fade the logos out softly at both edges instead of cutting them dead. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+.logo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;             /* let the row be as wide as its contents */
+  animation: logo-scroll 28s linear infinite;
+}
+/* Pause the scroll while someone is looking (hover or keyboard focus). */
+.logo-marquee:hover .logo-track,
+.logo-marquee:focus-within .logo-track {
+  animation-play-state: paused;
+}
+.logo-item {
+  height: 60px;                   /* every logo is forced to the same height... */
+  width: auto;                    /* ...and its width follows to stay in proportion */
+  flex: 0 0 auto;
+  object-fit: contain;
+  margin-right: 4.5rem;           /* even spacing; also what makes the loop seamless */
+}
+/* Moving exactly one full set (half the doubled track) makes it loop cleanly. */
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Meetings */
@@ -384,6 +473,17 @@ img {
   .hero {
     padding: 4rem 0;
   }
+  /* Keep the logo faint and out of the way of the text on small screens. */
+  .hero-logo {
+    opacity: 0.10;
+    right: -25%;
+    height: 90%;
+  }
+  /* Smaller logos so more than one fits across a narrow screen. */
+  .logo-item {
+    height: 44px;
+    margin-right: 3rem;
+  }
 }
 
 /* Respect users who prefer less motion */
@@ -393,5 +493,12 @@ img {
   }
   * {
     transition: none !important;
+  }
+  /* Stop the logos from scrolling; let people swipe through them instead. */
+  .logo-track {
+    animation: none;
+  }
+  .logo-marquee {
+    overflow-x: auto;
   }
 }
