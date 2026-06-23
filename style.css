@@ -316,7 +316,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1rem;
   flex-wrap: wrap;             /* logo drops below the number on narrow screens */
 }
 .stat-copy {
