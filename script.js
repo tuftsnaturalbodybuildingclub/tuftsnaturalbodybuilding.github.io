@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let started = false;
 
       function runCount() {
-        const duration = 2000; // total time in milliseconds (2 seconds)
+        const duration = 5000; // total time in milliseconds (2 seconds)
         const startTime = performance.now();
 
         function tick(now) {

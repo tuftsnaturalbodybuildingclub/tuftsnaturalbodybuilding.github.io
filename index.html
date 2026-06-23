@@ -40,7 +40,7 @@
   <!-- ================= HEADER / NAV ================= -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="brand">Tufts Natural Bodybuilding</a>
+      <a href="#top" class="brand">Tufts Natural Bodybuilding Club</a>
 
       <!-- Shows only on small screens. script.js makes it open/close the menu. -->
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
@@ -60,6 +60,24 @@
 
   <main>
 
+    <!-- ================= TOTAL LIFTED (counting stat) ================= -->
+    <!-- The number counts up from 0 when this band scrolls into view.
+         To change the total, edit data-target below (digits only, no commas).
+         To change the date, edit the text in .stat-label. -->
+    <section id="total-lifted" class="stat-band">
+      <div class="container stat-inner">
+        <img class="stat-logo" src="logoLarge.png" alt="Tufts Natural Bodybuilding Club logo" />
+        <div class="stat-copy">
+          <p class="stat-eyebrow">Together the club has moved</p>
+          <p class="stat-number" data-target="3300000">0</p>
+          <p class="stat-label">pounds lifted &middot; as of July 1</p>
+        </div>
+        <!-- Club logo, sitting to the right of the number.
+             Resize it with "height" in .stat-logo (style.css). -->
+        
+      </div>
+    </section>
+    
     <!-- ================= HERO ================= -->
     <section class="hero">
       <div class="container hero-inner">
@@ -74,39 +92,23 @@
       </div>
     </section>
 
-    <!-- ================= TOTAL LIFTED (counting stat) ================= -->
-    <!-- The number counts up from 0 when this band scrolls into view.
-         To change the total, edit data-target below (digits only, no commas).
-         To change the date, edit the text in .stat-label. -->
-    <section id="total-lifted" class="stat-band">
-      <div class="container stat-inner">
-        <div class="stat-copy">
-          <p class="stat-eyebrow">Together the club has moved</p>
-          <p class="stat-number" data-target="3300000">0</p>
-          <p class="stat-label">pounds lifted &middot; as of July 1</p>
-        </div>
-        <!-- Club logo, sitting to the right of the number.
-             Resize it with "height" in .stat-logo (style.css). -->
-        <img class="stat-logo" src="logoLarge.png" alt="Tufts Natural Bodybuilding Club logo" />
-      </div>
-    </section>
+    <!-- ================= FEDERATIONS (revolving logos) ================= -->
+    <!-- List each logo ONCE here. script.js automatically copies the row
+         enough times to fill the screen and loop with no gaps. To add or
+         remove a federation, just edit this one list. Hovering pauses it. -->
+    <section id="federations" class="section section">
+      <div class="container narrow centered">
 
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="section">
-      <div class="container narrow">
-        <p class="section-eyebrow">About</p>
-        <h2 class="section-title">Strength, earned honestly.</h2>
-        <p>
-          We're a student-run club at Tufts for anyone interested in natural — meaning
-          drug-free — strength training and bodybuilding. Natural gains are slow and
-          earned, and that's the whole point: we're here for the long game.
-        </p>
-        <p>
-          All experience levels are welcome. Never touched a barbell? Great. Been
-          lifting for years? Also great. We train together, share what works, and keep
-          each other accountable. Compete on stage one day if you want to — or just get
-          stronger with good people.
-        </p>
+        <h2 class="section-title">Natural Federations we follow</h2>
+      </div>
+
+      <div class="logo-marquee" aria-label="Natural bodybuilding federations">
+        <div class="logo-track">
+          <img class="logo-item" src="WNBF.png"  alt="WNBF logo" />
+          <img class="logo-item" src="INBA.png"  alt="INBA logo" />
+          <img class="logo-item" src="OCB.png"   alt="OCB logo" />
+          <img class="logo-item" src="IATBP.png" alt="IATBP logo" />
+        </div>
       </div>
     </section>
 
@@ -123,8 +125,8 @@
           </article>
 
           <article class="card">
-            <h3>Dieting done safe</h3>
-            <p>Crash diets and reckless cuts can wreck your hormones and your health. Members who've been through it help you cut or bulk in a way that's sustainable, physically and mentally.</p>
+            <h3>Nutrition &amp; recovery support</h3>
+            <p>Workshops on eating for your goals, sleep, and training smart so progress actually sticks.</p>
           </article>
 
           <article class="card">
@@ -133,8 +135,8 @@
           </article>
 
           <article class="card">
-            <h3>Nutrition &amp; recovery</h3>
-            <p>Workshops on eating for your goals, sleep, and training smart so progress actually sticks.</p>
+            <h3>Dieting done safe</h3>
+            <p>Crash diets and reckless cuts can wreck your hormones and your health. Members who've been through it help you cut or bulk in a way that's sustainable, physically and mentally.</p>
           </article>
 
           <article class="card">
@@ -160,27 +162,6 @@
         <p class="meeting-line"><strong>Tuesdays at 7:00 PM</strong></p>
         <p class="meeting-line">Tisch Sports &amp; Fitness Center &middot; room TBD</p>
         <p>New faces are always welcome — no sign-up needed for your first one. Just show up.</p>
-      </div>
-    </section>
-
-    <!-- ================= FEDERATIONS (revolving logos) ================= -->
-    <!-- List each logo ONCE here. script.js automatically copies the row
-         enough times to fill the screen and loop with no gaps. To add or
-         remove a federation, just edit this one list. Hovering pauses it. -->
-    <section id="federations" class="section section-alt">
-      <div class="container narrow centered">
-        <p class="section-eyebrow">The natural circuit</p>
-        <h2 class="section-title">Federations we follow</h2>
-        <p>From local stages to the national level, these are the drug-tested organizations we keep an eye on — and can point you toward when you're ready to compete.</p>
-      </div>
-
-      <div class="logo-marquee" aria-label="Natural bodybuilding federations">
-        <div class="logo-track">
-          <img class="logo-item" src="WNBF.png"  alt="WNBF logo" />
-          <img class="logo-item" src="INBA.png"  alt="INBA logo" />
-          <img class="logo-item" src="OCB.png"   alt="OCB logo" />
-          <img class="logo-item" src="IATBP.png" alt="IATBP logo" />
-        </div>
       </div>
     </section>
 

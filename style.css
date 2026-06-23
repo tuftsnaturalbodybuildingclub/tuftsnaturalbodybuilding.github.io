@@ -111,7 +111,7 @@ img {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 2rem 0;
 }
 .section-alt {
   background: var(--surface-alt);
@@ -233,7 +233,7 @@ img {
 .hero {
   background: var(--ink);
   color: #f4f5f7;
-  padding: 6rem 0;
+  padding: 2rem 0;
 }
 .hero-inner {
   max-width: 760px;
@@ -308,7 +308,7 @@ img {
 .stat-band {
   background: var(--accent);
   color: #fff;
-  padding: 2.5rem 0;            /* shorter band */
+  padding: 1rem 0;            /* shorter band */
 }
 .stat-inner {
   display: flex;
@@ -408,7 +408,7 @@ img {
   animation-play-state: paused;
 }
 .logo-item {
-  height: 60px;                   /* every logo is forced to the same height... */
+  height: 128px;                   /* every logo is forced to the same height... */
   width: auto;                    /* ...and its width follows to stay in proportion */
   flex: 0 0 auto;
   object-fit: contain;
