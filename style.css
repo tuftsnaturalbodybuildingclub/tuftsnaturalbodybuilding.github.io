@@ -238,6 +238,8 @@ img {
   color: #f4f5f7;
   padding: 2rem 0;
 }
+.hero-inner {
+}
 .eyebrow {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -354,7 +356,7 @@ img {
 /* Card grid (What we do) */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -394,6 +396,11 @@ img {
   flex-wrap: wrap;
   row-gap: 1.5rem;
 }
+
+:target {
+    scroll-margin-top: 50px; /* Match your sticky header height */
+}
+
 /* script.js adds .is-animating once it has copied the logos enough times
    to fill the screen — only then do we switch on the seamless scroll. */
 .logo-track.is-animating {
@@ -535,9 +542,9 @@ img {
 
 /* Footer */
 .site-footer {
-  background: var(--ink);
+  background: var(--earth);
   color: #aab0b8;
-  padding: 2.5rem 0;
+  padding: 0.5rem 0;
 }
 .footer-brand {
   font-family: var(--font-display);
